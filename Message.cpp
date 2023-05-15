@@ -1,20 +1,16 @@
-#include "Node.h"
 #include "Message.h"
-#include <string>
 
-class Message {
-private:
-    Node* source; 
-    Node* destination; 
-    std::string data; 
+Message::Message(Node* source, Node* destination, const std::string& data)
+    : source(source), destination(destination), data(data) {}
 
-public:
-    // Constructor
-    Message(Node* source, Node* destination, const std::string& data)
-        : source(source), destination(destination), data(data) {}
+Node* Message::getSource() { 
+    return source; 
+}
 
-    // Getters
-    Node* getSource() { return source; }
-    Node* getDestination() { return destination; }
-    std::string getData() { return data; }
-};
+Node* Message::getDestination() { 
+    return destination; 
+}
+
+std::string Message::getData() { 
+    return data; 
+}
