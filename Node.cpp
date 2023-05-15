@@ -56,13 +56,13 @@ public:
     }
 
     // Sender en melding til alle naboer innenfor rekkevidde.
-    //void sendMessage(Message* message) {
-    //    // Todo; 
-    //}
+    void sendMessage(Message* message) {
+        // Todo; 
+    }
 
     // Mottar en melding fra naboer innenfor rekkevidden.
-    //void receiveMessage(Message* message) {
-    //    // Todo;
-    //}
+    void receiveMessage(Message* message) {
+        // Todo;
+    }
 
 };

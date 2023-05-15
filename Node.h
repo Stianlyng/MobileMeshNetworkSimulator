@@ -1,4 +1,3 @@
-
 #ifndef NODE_H
 #define NODE_H
 
@@ -7,7 +6,7 @@
 #include <algorithm>
 #include <cmath>
 
-// todo; class Message;
+class Message;
 
 class Node {
 private:
@@ -38,8 +37,8 @@ public:
     void updatePosition();
     void addNeighbor(Node* neighbor);
     void removeNeighbor(Node* neighbor);
-    // todo; void sendMessage(Message* message);
-    // todo; void receiveMessage(Message* message);
+    void sendMessage(Message* message);
+    void receiveMessage(Message* message);
 };
 
 #endif // NODE_H
