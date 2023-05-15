@@ -1,5 +1,3 @@
-#include "Node.h"
-#include "Network.h"
 // Node-klassen representerer en node i et nettverk. Hver node har en unik identifikator, en posisjon (x, y),
 // en kommunikasjonsrekkevidde, en bevegelseshastighet, en bevegelsesretning og en liste over nabo-noder.
 #include "Node.h"
