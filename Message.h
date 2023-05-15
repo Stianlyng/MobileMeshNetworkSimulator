@@ -6,18 +6,16 @@
 
 class Message {
 private:
-    Node* source; // Source node
-    Node* destination; // Destination node
-    std::string data; // Data being transmitted
+    Node* source; 
+    Node* destination; 
+    std::string data; 
 
 public:
-    // Constructor
     Message(Node* source, Node* destination, const std::string& data);
 
-    // Getters
     Node* getSource();
     Node* getDestination();
     std::string getData();
 };
 
-#endif // MESSAGE_H
+#endif 

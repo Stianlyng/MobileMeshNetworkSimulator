@@ -55,6 +55,8 @@ public:
         neighbors.erase(std::remove(neighbors.begin(), neighbors.end(), neighbor), neighbors.end());
     }
 
+    // todo; implementer en routing algoritme, f.eks. AODV eller DSR
+    
     // Sender en melding til alle naboer innenfor rekkevidde.
     void sendMessage(Message* message) {
         // Todo; 
