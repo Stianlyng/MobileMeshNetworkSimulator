@@ -4,9 +4,9 @@
 
 class Message {
 private:
-    Node* source; // Source node
-    Node* destination; // Destination node
-    std::string data; // Data being transmitted
+    Node* source; 
+    Node* destination; 
+    std::string data; 
 
 public:
     // Constructor

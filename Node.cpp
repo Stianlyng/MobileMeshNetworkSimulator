@@ -1,10 +1,12 @@
 #include "Node.h"
+#include "Network.h"
 
 #include <vector>
 #include <map>
 #include <string>
 #include <algorithm>
 #include <cmath>
+#include <iostream>
 
 // Node-klassen representerer en node i et nettverk. Hver node har en unik identifikator, en posisjon (x, y),
 // en kommunikasjonsrekkevidde, en bevegelseshastighet, en bevegelsesretning og en liste over nabo-noder.
@@ -59,12 +61,15 @@ public:
     
     // Sender en melding til alle naboer innenfor rekkevidde.
     void sendMessage(Message* message) {
-        // Todo; 
+        // temp; legger til meldingen i nettverket
+        Network::getInstance()->addMessage(message);
     }
 
     // Mottar en melding fra naboer innenfor rekkevidden.
     void receiveMessage(Message* message) {
         // Todo;
+        // enkel priont for å teste at meldingen blir mottatt
+            std::cout << "Node " << id << " received message: " << message->getData() << std::endl; 
     }
 
 };
