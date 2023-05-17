@@ -2,8 +2,8 @@
 #include <QDebug>
 #include <QGraphicsSceneMouseEvent>
 
-NodeItem::NodeItem(Node* node)
-    : node(node) {
+NodeItem::NodeItem(Node* node, MainWindow* mainWindow)  // update the constructor
+    : node(node), mainWindow(mainWindow) {
     this->setFlag(QGraphicsItem::ItemIsSelectable, true);
 }
 
@@ -25,14 +25,14 @@ QPainterPath NodeItem::shape() const {
 }
 
 void NodeItem::mousePressEvent(QGraphicsSceneMouseEvent *event) {
+    // Handle mouse press event
     qDebug() << "Node " << node->getId() << " pressed.";
-
-    // enkel msgbox
-    QMessageBox::information(nullptr, "Node details", QString("Node %1: x=%2, y=%3, range=%4, speed=%5, direction=%6")
-                             .arg(node->getId())
-                             .arg(node->getX())
-                             .arg(node->getY())
-                             .arg(node->getRange())
-                             .arg(node->getSpeed())
-                             .arg(node->getDirection()));
+    // Display the node details here
+    mainWindow->setInfoLabelText(QString("Node %1: x=%2, y=%3, range=%4, speed=%5, direction=%6")
+        .arg(node->getId())
+        .arg(node->getX())
+        .arg(node->getY())
+        .arg(node->getRange())
+        .arg(node->getSpeed())
+        .arg(node->getDirection()));
 }

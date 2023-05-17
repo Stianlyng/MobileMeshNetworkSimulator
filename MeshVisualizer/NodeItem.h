@@ -4,12 +4,14 @@
 #include <QGraphicsItem>
 #include <QPainter>
 #include "Node.h"
+#include "mainwindow.h"
 #include <QMessageBox>
 
+class MainWindow;
 class NodeItem : public QGraphicsItem
 {
 public:
-    NodeItem(Node* node);
+    NodeItem(Node* node, MainWindow* mainWindow);  
 
     QRectF boundingRect() const override;
 
@@ -21,6 +23,7 @@ public:
 
 private:
     Node* node;
+    MainWindow* mainWindow;  
 };
 
 #endif // NODEITEM_H
