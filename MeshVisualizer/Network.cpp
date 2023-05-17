@@ -18,17 +18,22 @@ void Network::addNode(Node* node) {
     nodes.push_back(node); 
 }
 
+// liste over alle noder i nettverket. Brukes av GUI for å visualisere nettverket.
+std::vector<Node*> Network::getNodes() const {
+    return nodes;
+}
 
 void Network::removeNode(Node* node) {
 	// fjerner en node fra nettverket. Den fjerner noden fra listen over noder.
     nodes.erase(std::remove(nodes.begin(), nodes.end(), node), nodes.end()); 
 }
 
+
+
 void Network::addMessage(Message* message) {
 	// temp; legger til en melding i meldingskøen, fjernes når routing er implementert
     messages.push_back(message);
 }
-
 
 // Oppdater tilstanden i nettverket
 void Network::update() {

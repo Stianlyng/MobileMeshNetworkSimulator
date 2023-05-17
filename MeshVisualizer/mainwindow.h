@@ -2,25 +2,24 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QGraphicsScene>
 
-namespace Ui {
-class MainWindow;
-}
-
-class QGraphicsScene;
-class QGraphicsEllipseItem;
+QT_BEGIN_NAMESPACE
+namespace Ui { class MainWindow; }
+QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = nullptr);
+    MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+    void refreshNetworkVisualization();
 
 private:
     Ui::MainWindow *ui;
     QGraphicsScene* scene;
 };
-
 #endif // MAINWINDOW_H
