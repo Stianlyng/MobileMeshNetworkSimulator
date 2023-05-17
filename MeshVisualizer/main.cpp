@@ -7,11 +7,8 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    // Create Network instance
-    Network* network = Network::getInstance();
+    Network* network = Network::getInstance(); // todo; fjern når routing er implementert
 
-    // Add nodes to network
-    // Note: The position, range, speed, and direction values are just examples. You can replace them with actual values.
     Node* node1 = new Node(1, 50, 50, 10, 1, 0);
     Node* node2 = new Node(2, 100, 100, 10, 1, 0);
     Node* node3 = new Node(3, 150, 150, 10, 1, 0);
@@ -41,7 +38,6 @@ int main(int argc, char *argv[])
     network->addNode(node13);
     
 
-    // Add neighbors to the nodes
     node1->addNeighbor(node2);
     node2->addNeighbor(node3);
     node3->addNeighbor(node4);
@@ -54,12 +50,11 @@ int main(int argc, char *argv[])
     node10->addNeighbor(node11);
     node11->addNeighbor(node12);
     node12->addNeighbor(node13);
-    
+
 
 
     MainWindow w;
 
-    // Refresh the network visualization
     w.refreshNetworkVisualization();
     w.show();
     return a.exec();

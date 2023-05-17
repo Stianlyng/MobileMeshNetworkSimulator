@@ -1,8 +1,9 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include "Network.h"
-#include <QGraphicsEllipseItem>
+#include "NodeItem.h"   
 #include <QGraphicsLineItem>
+#include <QLabel>  
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -12,6 +13,11 @@ MainWindow::MainWindow(QWidget *parent)
 
     scene = new QGraphicsScene(this);
     ui->graphicsView->setScene(scene);
+    ui->graphicsView->setRenderHint(QPainter::Antialiasing);
+    ui->graphicsView->setInteractive(true);
+
+    infoLabel = new QLabel(this);  
+    ui->verticalLayout->addWidget(infoLabel);  
 
     refreshNetworkVisualization();
 }
@@ -21,21 +27,25 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::setInfoLabelText(const QString& text) {
+    infoLabel->setText(text);
+}
+
 void MainWindow::refreshNetworkVisualization() {
-    // Clear the current visualization
+
     scene->clear();
 
-    // Get the current state of the network
+    // henter nodene fra Network
     Network* network = Network::getInstance();
     std::vector<Node*> nodes = network->getNodes();
 
-    // Draw each node
+    // tegner nodene
     for (Node* node : nodes) {
-        QGraphicsEllipseItem* nodeItem = scene->addEllipse(node->getX(), node->getY(), 20, 20);
-        nodeItem->setBrush(QBrush(Qt::blue));
+        NodeItem* nodeItem = new NodeItem(node, this); // Change here
+        scene->addItem(nodeItem); // Add the custom NodeItem to the scene
     }
 
-    // Draw connections between nodes
+    // tegner forbindelsene mellom nodene
     for (Node* node : nodes) {
         std::vector<Node*> neighbors = node->getNeighbors();
         for (Node* neighbor : neighbors) {

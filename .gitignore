@@ -33,3 +33,11 @@
 
 # folders
 build-MeshVisualizer-Desktop-Debug/
+build-MeshVisualizer-Desktop-Profile/
+build-MeshVisualizer-Desktop-Release/
+
+
+# other files
+.vscode/c_cpp_properties.json
+MeshVisualizer/fileClip.sh
+program

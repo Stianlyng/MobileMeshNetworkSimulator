@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QGraphicsScene>
+#include <QLabel>   
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,9 +18,12 @@ public:
     ~MainWindow();
 
     void refreshNetworkVisualization();
+    void setInfoLabelText(const QString& text); 
 
 private:
     Ui::MainWindow *ui;
     QGraphicsScene* scene;
+    QLabel* infoLabel;  
 };
+
 #endif // MAINWINDOW_H
