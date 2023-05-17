@@ -23,6 +23,8 @@ set(PROJECT_SOURCES
         Message.h
         Network.h
         Node.h
+        NodeItem.cpp
+        NodeItem.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

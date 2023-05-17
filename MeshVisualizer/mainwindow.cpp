@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include "Network.h"
-#include <QGraphicsEllipseItem>
+#include "NodeItem.h"   // Include this
 #include <QGraphicsLineItem>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -12,6 +12,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     scene = new QGraphicsScene(this);
     ui->graphicsView->setScene(scene);
+    ui->graphicsView->setRenderHint(QPainter::Antialiasing);
+    ui->graphicsView->setInteractive(true);
 
     refreshNetworkVisualization();
 }
@@ -31,8 +33,8 @@ void MainWindow::refreshNetworkVisualization() {
 
     // Draw each node
     for (Node* node : nodes) {
-        QGraphicsEllipseItem* nodeItem = scene->addEllipse(node->getX(), node->getY(), 20, 20);
-        nodeItem->setBrush(QBrush(Qt::blue));
+        NodeItem* nodeItem = new NodeItem(node); // Change here
+        scene->addItem(nodeItem); // Add the custom NodeItem to the scene
     }
 
     // Draw connections between nodes
