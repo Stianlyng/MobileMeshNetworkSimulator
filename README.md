@@ -1,6 +1,7 @@
 # MobileMeshNetworkSimulator
 A Mobile Mesh Network Simulator
 
+Never finished it. Had to prioritize other stuff.....
 
 ## Nettverk
 - **Type nettverk:** Mobile Mesh Network
